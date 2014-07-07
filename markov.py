@@ -15,6 +15,7 @@ inputText = inputText.replace("\n", splitter)
 
 recentValues = ("b", "a")
 toGenerate = 100
+stopOnPeriod = False
 
 unitList = inputText.split(splitter)
 
@@ -26,7 +27,8 @@ for i in range(len(unitList) - (n - 1)):
 
 outString = splitter.join(recentValues) + splitter
 
-for i in range(toGenerate):
+i = 0
+while i < toGenerate || (stopOnPeriod && outString[-1] != "."):
 	relevantNGramProbabilities = {}
 
 	for key in unitNGramProbabilities:
@@ -43,5 +45,6 @@ for i in range(toGenerate):
 			outString += key[n-1] + splitter
 			recentValues = recentValues[1:] + (key[n-1],)
 			break
-
+	i += 1
+	
 print outString
