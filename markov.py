@@ -17,7 +17,6 @@ recentValues = ("b", "a")
 toGenerate = 100
 
 unitList = inputText.split(splitter)
-units = frozenset(unitList)
 
 unitNGramProbabilities = {}
 
